@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+NKo+Unjoined:wght@400;600&display=swap');
+html{
+    font-size: 62.5%;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
+body{
+    overflow-x: hidden;
+    font-family: 'Noto Sans NKo Unjoined', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    flex-grow: 1;
+}
+ul li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+h2{
+    font-weight: bold;
+    font-size: 4rem;
+}
+p{
+    line-height: 1.8;
+}
+.colorWhite{
+    color: #ffffff;
+}
+.colorGray{
+    color: #9a9ea1;
+}
+.colorGreen{
+    color: #29a746;
+}
+.buttons{
+    color: white;
+    font-size: 1.6rem;
+    padding: 15px;
+    border-radius: 5px;
+}
+.greenBtn{
+    background-color: #29a746;
+}
+.transparentBtn{
+    border: 1px solid white;
+}
+.header{
+    width: 100%;
+    min-height: 100vh;
+}
+.header .navbar{
+    background-color: rgb(53, 58, 64);
+    min-height: 120px;
+}
+.header .navbar .imgLogo{
+    max-height: 70px;
+}
+.header .navbar.navbar-dark .navbar-nav .nav-link.colorGreen{
+    color: #29a746;
+}
+.header #conference{
+    background: linear-gradient(to right, #00000091, #00000091), url("../assets/img/BuenosAires.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: calc(100vh - 120px);
+    color: white;
+}
+.header #conference h1{
+    font-size: 4.2rem;
+    font-weight: bold;
+}
+#speakers{
+    margin-top: 50px;
+    padding: 20px;
+}
+#speakers h2 div{
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+#speakers .card{
+    min-width: 300px;
+    max-width: 350px;
+    margin: auto;
+}
+#speakers .card-img-top{
+    height: 350px;
+    object-fit: cover;
+}
+#speakers .talkTopic{
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+#speakers .talkTopic.backgroundYellow{
+    background-color: #ffc208;
+}
+#speakers .talkTopic.backgroundBlue{
+    background-color: #16a3b7;
+    color: white;
+}
+#speakers .talkTopic.backgroundGray{
+    background-color: #6c757c;
+    color: white;
+}
+#speakers .talkTopic.backgroundRed{
+    background-color: #dd3647;
+    color: white;
+}
+#speakers .card-title{
+    font-weight: bold;
+    font-size: 2rem;
+}
+#placeAndDate{
+    margin-top: 50px;
+    color: white;
+}
+#placeAndDate .placeAndDate__img{
+    min-height: 300px;
+    background-image: url("../assets/img/honolulu.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#placeAndDate .placeAndDate__info{
+    min-height: 300px;
+    padding: 20px;
+    background-color: rgb(51, 58, 64);
+}
+#placeAndDate .placeAndDate__info p sup{
+    font-size: 1rem;
+}
+#speakerForm{
+    margin-top: 50px;
+    padding: 20px;
+}
+#speakerForm .speakerForm__h2 div{
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+#speakerForm .speakerForm__form div input{
+    font-size: 1.8rem;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    color: dimgray;
+}
+#speakerForm .speakerForm__form textarea{
+    font-size: 2.4rem;
+    height: 130px;
+    padding: 10px 22px;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    color: dimgray;
+}
+#speakerForm .speakerForm__form p{
+    font-size: 1.6rem;
+    color: dimgray;
+}
+#speakerForm .speakerForm__form__btn{
+    background-color: rgb(150, 201, 62);
+    font-size: 1.8rem;
+    border: 0;
+}
+.headerTickets, .headerError404{
+    min-height: initial;
+}
+.mainTickets .cardCategory{
+    width: 260px;
+    height: 260px;
+}
+.mainTickets section:hover > :not(:hover){
+    opacity: 0.4;
+}
+.mainTickets section .cardCategory.border-blue:hover{
+    border: 8px solid rgb(0, 123, 255);
+}
+.mainTickets section .cardCategory.border-lightblue:hover{
+    border: 8px solid rgb(23, 162, 184);
+}
+.mainTickets section .cardCategory.border-yellow:hover{
+    border: 8px solid rgb(255, 193, 7);
+}
+.mainTickets .cardCategory .card-body .card-title{
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.border-blue{
+    border: 1px solid rgb(0, 123, 255);
+}
+.border-lightblue{
+    border: 1px solid rgb(23, 162, 184);
+}
+.border-yellow{
+    border: 1px solid rgb(255, 193, 7);
+}
+.mainTickets h1{
+    font-weight: bold;
+}
+.mainTickets h1 div{
+    font-weight: 500;
+}
+.mainTickets form .totalPrice{
+    background-color: rgb(204, 229, 255);
+    border: 1px solid rgb(185, 219, 255);
+    border-radius: 5px;
+    color: rgb(0, 64, 133);
+}
+.mainTickets form input, .mainTickets form .form-select{
+    font-size: 1.6rem;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    color: dimgray;
+    padding: 5px 10px;
+}
+.mainTickets form .btn{
+    background-color: rgb(151, 201, 62);
+    border: 0;
+}
+.mainError404{
+    background-image: linear-gradient(to right, #000000, #2a2a2a, #4f4f4f, #787878, #a4a4a4);
+    color: #ffffff;
+    padding: 20px;
+}
+.mainError404 h1{
+    color: rgb(255, 187, 0);
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+.mainError404 a{
+    text-decoration: underline;
+    font-weight: 500;
+}
+.mainError404 .img-error404{
+    width: 200px;
+}
+.footer{
+    background-image: linear-gradient(to right, #1d3744, #1d3e4f, #1d455a, #1d4c66, #1e5372);
+    min-height: 150px;
+}
+.footer ul li a{
+    font-size: 1.8rem;
+    color: white;
+}
+@media screen and (min-width: 992px){
+    .header .navbar{
+        padding: 0 100px;
+    }
+    #conference{
+        padding: 0 100px;
+    }
+    #conference h1{
+        font-size: 4.8rem;
+    }
+    #conference p{
+        font-size: 2rem;
+    }
+    #conference .buttons{
+        font-size: 2rem;
+    }
+    #speakers .card{
+        max-width: initial;
+    }
+    #speakers .card-img-top{
+        height: 450px;
+        object-fit: cover;
+    }
+    #placeAndDate .placeAndDate__img{
+        min-height: 600px;
+    }
+    #placeAndDate .placeAndDate__info{
+        min-height: 600px;
+    }
+    #speakerForm p{
+        font-size: 2rem;
+    }
+    #speakerForm p span{
+        font-size: 2rem;
+    }
+    #speakerForm .speakerForm__form__btn{
+        font-size: 2.4rem;
+    }
+    .mainError404 h1{
+        font-size: 4.5rem;
+    }
+    .mainError404 p{
+        font-size: 2.5rem;
+    }
+    .mainError404 a{
+        font-size: 2.5rem;
+    }
+    .mainError404 .img-error404{
+        width: 400px;
+    }
+}
