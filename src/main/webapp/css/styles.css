@@ -55,7 +55,9 @@ p{
 }
 .header{
     width: 100%;
-    min-height: 100vh;
+}
+.headerHome{
+	min-height: 100vh;
 }
 .header .navbar{
     background-color: rgb(53, 58, 64);
@@ -79,45 +81,45 @@ p{
     font-size: 4.2rem;
     font-weight: bold;
 }
-#speakers{
+#oradores{
     margin-top: 50px;
     padding: 20px;
 }
-#speakers h2 div{
+#oradores h2 div{
     font-size: 1.6rem;
     font-weight: 400;
 }
-#speakers .card{
+#oradores .card{
     min-width: 300px;
     max-width: 350px;
     margin: auto;
 }
-#speakers .card-img-top{
+#oradores .card-img-top{
     height: 350px;
     object-fit: cover;
 }
-#speakers .talkTopic{
+#oradores .talkTopic{
     padding: 2px 6px;
     border-radius: 5px;
     font-weight: bold;
     font-size: 14px;
 }
-#speakers .talkTopic.backgroundYellow{
+#oradores .talkTopic.backgroundYellow{
     background-color: #ffc208;
 }
-#speakers .talkTopic.backgroundBlue{
+#oradores .talkTopic.backgroundBlue{
     background-color: #16a3b7;
     color: white;
 }
-#speakers .talkTopic.backgroundGray{
+#oradores .talkTopic.backgroundGray{
     background-color: #6c757c;
     color: white;
 }
-#speakers .talkTopic.backgroundRed{
+#oradores .talkTopic.backgroundRed{
     background-color: #dd3647;
     color: white;
 }
-#speakers .card-title{
+#oradores .card-title{
     font-weight: bold;
     font-size: 2rem;
 }
@@ -140,21 +142,21 @@ p{
 #placeAndDate .placeAndDate__info p sup{
     font-size: 1rem;
 }
-#speakerForm{
+#form-orador{
     margin-top: 50px;
     padding: 20px;
 }
-#speakerForm .speakerForm__h2 div{
+#form-orador .form-orador__h2 div{
     font-size: 1.6rem;
     font-weight: 400;
 }
-#speakerForm .speakerForm__form div input{
+#form-orador .form-orador__form div input{
     font-size: 1.8rem;
     border: 1px solid rgb(212, 212, 212);
     border-radius: 5px;
     color: dimgray;
 }
-#speakerForm .speakerForm__form textarea{
+#form-orador .form-orador__form textarea{
     font-size: 2.4rem;
     height: 130px;
     padding: 10px 22px;
@@ -162,17 +164,14 @@ p{
     border-radius: 5px;
     color: dimgray;
 }
-#speakerForm .speakerForm__form p{
+#form-orador .form-orador__form p{
     font-size: 1.6rem;
     color: dimgray;
 }
-#speakerForm .speakerForm__form__btn{
+#form-orador .form-orador__form__btn, .btn-login{
     background-color: rgb(150, 201, 62);
     font-size: 1.8rem;
     border: 0;
-}
-.headerTickets, .headerError404{
-    min-height: initial;
 }
 .mainTickets .cardCategory{
     width: 260px;
@@ -227,7 +226,7 @@ p{
     border: 0;
 }
 .mainError404{
-    background-image: linear-gradient(to right, #000000, #2a2a2a, #4f4f4f, #787878, #a4a4a4);
+    background-color: #696969;
     color: #ffffff;
     padding: 20px;
 }
@@ -251,6 +250,9 @@ p{
     font-size: 1.8rem;
     color: white;
 }
+.img-login{
+    width: 80px;
+}
 @media screen and (min-width: 992px){
     .header .navbar{
         padding: 0 100px;
@@ -267,10 +269,10 @@ p{
     #conference .buttons{
         font-size: 2rem;
     }
-    #speakers .card{
+    #oradores .card{
         max-width: initial;
     }
-    #speakers .card-img-top{
+    #oradores .card-img-top{
         height: 450px;
         object-fit: cover;
     }
@@ -280,13 +282,13 @@ p{
     #placeAndDate .placeAndDate__info{
         min-height: 600px;
     }
-    #speakerForm p{
+    #form-orador p{
         font-size: 2rem;
     }
-    #speakerForm p span{
+    #form-orador p span{
         font-size: 2rem;
     }
-    #speakerForm .speakerForm__form__btn{
+    #form-orador .form-orador__form__btn{
         font-size: 2.4rem;
     }
     .mainError404 h1{

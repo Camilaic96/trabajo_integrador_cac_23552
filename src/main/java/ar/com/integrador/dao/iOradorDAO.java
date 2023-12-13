@@ -1,5 +1,4 @@
 package ar.com.integrador.dao;
-
 import ar.com.integrador.domain.Orador;
 import java.util.List;
 

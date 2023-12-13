@@ -14,8 +14,10 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 	@Override
 	public Orador getById(Long id)  throws Exception{
 		//-1 necesito la conection a la base
+		// metodo estatico, lo usamos a traves de la clase de conexion, este method retorna un objeto conection,
+		// que es el que se conecto a la base de mysql
 		Connection connection = AdministradorDeConexiones.getConnection();
-		//2 - arma el statement
+		//2 - arma el statement-- query de sql
 		String sql = "select * from oradores where id_orador = " + id;
 	   
 		Statement statement  = connection.createStatement();
@@ -33,10 +35,9 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 			String apellidoBd = resultset.getString("apellido");
 			String mailBd = resultset.getString("mail");
 			String temaBd = resultset.getString("tema");
-			String activoBd = resultset.getString("activo");
-			
-			return new Orador(idBd,nombreBd,apellidoBd,mailBd,temaBd,activoBd);
-			//*Orador(Long id_orador, String nombre, String apellido,String mail,String tema,String activo)*/
+			cerrar(connection);
+			return new Orador(idBd,nombreBd,apellidoBd,mailBd,temaBd);
+			//*Orador(Long id_orador, String nombre, String apellido,String mail,String tema)*/
 			
 		}
 		cerrar(connection);
@@ -68,9 +69,8 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 			String apellidoBd = resultset.getString("apellido");
 			String mailBd = resultset.getString("mail");
 			String temaBd = resultset.getString("tema");
-			String activoBd = resultset.getString("activo");
 			// creamos un departamento y lo agregamos a la lista 
-			Orador d = new Orador(idBd,nombreBd,apellidoBd,mailBd,temaBd,activoBd);
+			Orador d = new Orador(idBd,nombreBd,apellidoBd,mailBd,temaBd);
 			oradores.add(d);
 					
 			}
@@ -123,14 +123,13 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 		//-1 necesito la conection a la base
 		Connection connection = AdministradorDeConexiones.getConnection();
 		//2 - arma el statement
-		 String sql = "update oradores set nombre = ?, apellido = ?, mail = ?, tema = ?, activo =? where id_orador= ?"  ;
+		 String sql = "update oradores set nombre = ?, apellido = ?, mail = ?, tema = ? where id_orador= ?"  ;
 		 PreparedStatement statement  = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 	     statement.setString(1,orador.getNombre());
 		 statement.setString(2,orador.getApellido());
 		 statement.setString(3,orador.getMail());
 		 statement.setString(4,orador.getTema());
-		 statement.setString(5,orador.getActivo());
-		 statement.setLong(6,orador.getId());
+		 statement.setLong(5,orador.getId());
 		//3 -devuelve un entero devuelve 1 o 0, pero no hace falta confirmar para este caso 
 		 statement.execute();
 		
@@ -144,13 +143,12 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 		//-1 necesito la conection a la base
 		Connection connection = AdministradorDeConexiones.getConnection();
 		//2 - arma el statement
-		 String sql = "insert into oradores (nombre, apellido,mail, tema, activo) values (?,?,?,?,?)" ;
+		 String sql = "insert into oradores (nombre, apellido,mail, tema) values (?,?,?,?)" ;
 		 PreparedStatement statement  = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 		 statement.setString(1,newOrador.getNombre());
 		 statement.setString(2,newOrador.getApellido());
 		 statement.setString(3,newOrador.getMail());
 		 statement.setString(4,newOrador.getTema());
-		 statement.setString(5,"S");
 		//3 -devuelve un entero devuelve 1 o 0, pero no hace falta confirmar para este caso 
 		 statement.execute();
 		 
@@ -199,10 +197,9 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 		String apellidoBd = resultset.getString("apellido");
 		String mailBd = resultset.getString("mail");
 		String temaBd = resultset.getString("tema");
-		String activoBd = resultset.getString("activo");
 		
 
-		return new Orador(nombreBd,apellidoBd,mailBd,temaBd,activoBd);
+		return new Orador(nombreBd,apellidoBd,mailBd,temaBd);
 	}
 	
 }

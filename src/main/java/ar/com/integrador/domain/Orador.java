@@ -1,31 +1,30 @@
 package ar.com.integrador.domain;
 
+
 public class Orador {
+	// atributos
 	private Long id_orador;
 	private String nombre;
 	private String apellido;
 	private String mail;
 	private String tema;
-	private String activo;
 	
 	// constructor de clase -- instanciar un objeto en memoria 
-	public Orador(String nombre, String apellido,String mail,String tema,String activo) {
+	public Orador(String nombre, String apellido,String mail,String tema) {
 		/*this.id_orador = id_orador;*/
 		// this, es una palabra reservada que hace referencia al objeto actual
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.mail = mail;
 		this.tema = tema;
-		this.activo = activo;
 	}
 	// constructor de clase 
-	public Orador(Long id_orador, String nombre, String apellido,String mail,String tema,String activo) {
+	public Orador(Long id_orador, String nombre, String apellido,String mail,String tema) {
 		this.id_orador = id_orador;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.mail = mail;
 		this.tema = tema;
-		this.activo = activo;
 	}
     
 	
@@ -70,13 +69,6 @@ public class Orador {
 
 	public void setTema(String tema) {
 		this.tema = tema;
-	}
-	public String getActivo() {
-		return this.activo;
-	}
-
-	public void setActivo(String activo) {
-		this.activo = activo;
 	}
 	
     // sobreescribir methods que heredan de la clase padre, hereda de object 
