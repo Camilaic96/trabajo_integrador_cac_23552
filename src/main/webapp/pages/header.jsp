@@ -13,22 +13,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-end flex-wrap align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link active fs-2 p-3" aria-current="page" href="${process.cwd()}/../integrador/index.jsp#conference">La conferencia</a>
+                            <a class="nav-link active p-3 fs-3" aria-current="page" href="${process.cwd()}/../integrador/index.jsp#conference">La conferencia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fs-2 p-3" href="${process.cwd()}/../integrador/index.jsp#oradores">Los oradores</a>
+                            <a class="nav-link p-3 fs-3" href="${process.cwd()}/../integrador/index.jsp#oradores">Los oradores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fs-2 p-3" href="${process.cwd()}/../integrador/index.jsp#placeAndDate">El lugar y la fecha</a>
+                            <a class="nav-link p-3 fs-3" href="${process.cwd()}/../integrador/index.jsp#placeAndDate">El lugar y la fecha</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fs-2 p-3" href="${process.cwd()}/../integrador/index.jsp#form-orador">Conviértete en orador</a>
+                            <a class="nav-link p-3 fs-3" href="${process.cwd()}/../integrador/index.jsp#form-orador">Conviértete en orador</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link colorGreen fs-2 p-3" href="${process.cwd()}/../integrador/pages/comprar-tickets.jsp">Comprar tickets</a>
+                            <a class="nav-link colorGreen p-3 fs-3" href="${process.cwd()}/../integrador/pages/comprar-tickets.jsp">Comprar tickets</a>
                         </li>
                         <li class="nav-item">
-                            <a class="fs-2 p-3 btn btn-dark" href="${process.cwd()}/../integrador/pages/login.jsp">Iniciar sesión</a>
+                            <a class=" fs-3 p-3 btn btn-dark" href="${process.cwd()}/../integrador/pages/login.jsp">Iniciar sesión</a>
                         </li>
                     </ul>
                 </div>

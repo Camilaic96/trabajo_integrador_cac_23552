@@ -7,9 +7,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" href="../css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/styles.css">
-		<title>Iniciar sesiï¿½n</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    	
+		<link rel="stylesheet" href="${process.cwd()}/../integrador/css/styles.css">
+		<title>Iniciar sesión</title>
+		
 	</head>
 
 	<body>
@@ -19,7 +20,7 @@
 			<section class="mt-5 container" id="form-orador">
 				<div class="row justify-content-center">
 					<div class="col-lg-8 col-xl-7">
-						<img src="../assets/img/account-form.svg" class="img-fluid img-login" alt="Ada Lovelace" loading="lazy">
+						<img src="${process.cwd()}/../integrador/assets/img/account-form.svg" class="img-fluid img-login" alt="account" loading="lazy">
 						<form action="<%=request.getContextPath()%>/LoginAdminController" method="POST" class="form-orador__form">
 							<div class="row justify-content-center">
 								<div class="col-8">
@@ -39,6 +40,13 @@
 								</div>
 							</div>
 						</form>
+						<% if (request.getAttribute("errorLogin") != null) { %>
+							<div class="row justify-content-center m-1">
+							    <div class="alert alert-danger col-8 my-3" role="alert">
+							        <%= request.getAttribute("errorLogin") %>
+							    </div>
+						    </div>
+						<% } %>
 					</div>
 				</div>
 			</section>

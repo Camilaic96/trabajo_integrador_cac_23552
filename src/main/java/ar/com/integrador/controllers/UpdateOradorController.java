@@ -16,84 +16,62 @@ import ar.com.integrador.domain.Orador;
 
 @WebServlet("/UpdateOradorController")
 public class UpdateOradorController extends HttpServlet {
-	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//capturo los parametros que viene en el request enviado por el form
-		String id = req.getParameter("id");//name de input
-		String nombre= req.getParameter("nombre");//name de input
-		String apellido = req.getParameter("apellido");//name de input
+		String id = req.getParameter("id");
+		String nombre = req.getParameter("nombre");
+		String apellido = req.getParameter("apellido");
 		String mail = req.getParameter("mail");
 		String tema = req.getParameter("tema");
-		
-		//validaciones!
+
 		List<String> errores = new ArrayList<>();
-		if(nombre == null || "".equals(nombre)) {
+		if (nombre == null || "".equals(nombre)) {
 			errores.add("Nombre vacío");
 		}
-		if(apellido== null || "".equals(apellido)) {
+		if (apellido == null || "".equals(apellido)) {
 			errores.add("Apellido vacío");
 		}
-		if(mail== null || "".equals(mail)) {
+		if (mail == null || "".equals(mail)) {
 			errores.add("Mail vacío");
 		}
-		if(tema== null || "".equals(tema)) {
+		if (tema == null || "".equals(tema)) {
 			errores.add("Tema vacío");
 		}
-		
-		if(!errores.isEmpty()) {
+
+		if (!errores.isEmpty()) {
 			req.setAttribute("errors", errores);
-			//vuelvo a la jsp con la lista de errores cargadas 
 			getServletContext().getRequestDispatcher("/pages/dashboard.jsp").forward(req, resp);
 			return;
 		}
-		
-		//interface = new class que implementa la interface
+
 		iOradorDAO dao = new OradorDAOMysqlImpl();
 		Orador orador;
-       
-		orador = new Orador(Long.parseLong(id),nombre,apellido,mail,tema);
-		// si no usamos try catch podemos arriba poner throws Exception
-		try { 
+
+		orador = new Orador(Long.parseLong(id), nombre, apellido, mail, tema);
+		try {
 			dao.update(orador);
-			//aca mensaje de exito, PERO COMO UNA LISTA
 			req.setAttribute("success", List.of("Orador id:" + orador.getId() + " actualizado correctamente"));
 		} catch (Exception e) {
 			e.printStackTrace();
 			req.setAttribute("errors", List.of("Error actualizando Orador<" + e.getMessage()));
 		}
-		
-		
-		//ahora redirect!!!!
-	     getServletContext().getRequestDispatcher("/DashboardOradorController").forward(req, resp);
-		
-		
+		getServletContext().getRequestDispatcher("/DashboardOradorController").forward(req, resp);
 	}
-	// cuando desde el listado, por url, viene al metodo get
-	//cargar el departamento y enviarlo a la jsp que va a editar los datos
-		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			String id = req.getParameter("id");
-			
-			// realizar validaciones, para los datos que vienen!!!
-			
-			//interface = new class que implementa la interface
-			iOradorDAO dao = new OradorDAOMysqlImpl();
-			
-			Orador orador = null;
-			//cargo los datos 
-			try {
-				orador = dao.getById(Long.parseLong(id));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			//guardar el producto en request y pasar dicho producto a la jsp
-			req.setAttribute("orador", orador);
-			
-			//redirect
-			//ahora redirect!!!!
-		     getServletContext().getRequestDispatcher("/pages/editar.jsp").forward(req, resp);
+
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String id = req.getParameter("id");
+		iOradorDAO dao = new OradorDAOMysqlImpl();
+
+		Orador orador = null;
+		try {
+			orador = dao.getById(Long.parseLong(id));
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
-}
+		req.setAttribute("orador", orador);
 
+		getServletContext().getRequestDispatcher("/pages/editar.jsp").forward(req, resp);
+	}
+
+}

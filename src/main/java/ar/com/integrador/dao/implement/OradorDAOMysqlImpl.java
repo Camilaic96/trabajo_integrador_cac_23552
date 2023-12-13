@@ -199,7 +199,7 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 		String temaBd = resultset.getString("tema");
 		
 
-		return new Orador(nombreBd,apellidoBd,mailBd,temaBd);
+		return new Orador(idBd,nombreBd,apellidoBd,mailBd,temaBd);
 	}
 	
 }

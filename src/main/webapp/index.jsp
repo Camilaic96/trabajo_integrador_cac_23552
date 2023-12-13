@@ -5,11 +5,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+       	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+       	<link rel="stylesheet" href="css/styles.css">
 
-        <title>Proyecto Integrador Front | Camila Irupé Cuello</title>
+        <title>Proyecto Final Java - Grupo 1</title>
     </head>
 
     <body>
@@ -30,24 +30,24 @@
                         <ul
                             class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-end flex-wrap align-items-center">
                             <li class="nav-item">
-                                <a class="nav-link active fs-2 p-3" aria-current="page" href="#conference">La
+                                <a class="nav-link active p-3 fs-3" aria-current="page" href="#conference">La
                                     conferencia</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fs-2 p-3" href="#oradores">Los oradores</a>
+                                <a class="nav-link p-3 fs-3" href="#oradores">Los oradores</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fs-2 p-3" href="#placeAndDate">El lugar y la fecha</a>
+                                <a class="nav-link p-3 fs-3" href="#placeAndDate">El lugar y la fecha</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fs-2 p-3" href="#form-orador">Conviértete en orador</a>
+                                <a class="nav-link p-3 fs-3" href="#form-orador">Conviértete en orador</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link colorGreen fs-2 p-3" href="pages/comprar-tickets.jsp">Comprar
+                                <a class="nav-link colorGreen p-3 fs-3" href="pages/comprar-tickets.jsp">Comprar
                                     tickets</a>
                             </li>
                             <li class="nav-item">
-                                <a class="fs-2 p-3 btn btn-dark" href="${process.cwd()}/../integrador/pages/login.jsp">Iniciar sesión</a>
+                                <a class="p-3 btn btn-dark fs-3" href="${process.cwd()}/../integrador/pages/login.jsp">Iniciar sesión</a>
                             </li>
                         </ul>
                     </div>
@@ -57,7 +57,7 @@
                 <div
                     class="conference__content d-flex flex-column justify-content-center align-items-center align-items-lg-end text-center text-lg-end col-lg-6 offset-lg-6">
                     <h1 class="p-3 mb-3">Conf Bs As</h1>
-                    <p class="mb-5">Bs As llega por primera vez a Argentina. Un evento para compartir con nuestra
+                    <p class="mb-5 p-5 p-lg-0">Bs As llega por primera vez a Argentina. Un evento para compartir con nuestra
                         comunidad el conocimiento y experiencia de los expertos que están creando el futuro de Internet.
                         Ven a conocer a miembros del evento, a otros estudiantes de Codo a Codo y los oradores de primer
                         nivel que tenemos para ti. ¡Te esperamos!</p>
@@ -128,7 +128,7 @@
                 </div>
             </section>
             <section class="container mb-4 text-center" id="restoOradores">
-                <a class="btn btn-outline-success" href="<%=request.getContextPath()%>/FindAllOradorController">Conoce
+                <a class="btn btn-outline-success fs-3" href="<%=request.getContextPath()%>/FindAllOradorController">Conoce
                     al resto de los ORADORES</a>
 
             </section>

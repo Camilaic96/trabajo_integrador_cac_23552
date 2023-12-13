@@ -62,6 +62,7 @@ p{
 .header .navbar{
     background-color: rgb(53, 58, 64);
     min-height: 120px;
+    padding: 0 20px;
 }
 .header .navbar .imgLogo{
     max-height: 70px;
@@ -257,6 +258,9 @@ p{
     .header .navbar{
         padding: 0 100px;
     }
+    .header .navbar .nav-link{
+	    font-size: 30px;
+	}
     #conference{
         padding: 0 100px;
     }
