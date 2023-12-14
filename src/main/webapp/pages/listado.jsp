@@ -41,11 +41,8 @@
 								<th scope="col" class="col-6">Tema</th>
 							</tr>
 						</thead>
-						<% //codigo java //obtener el listado desde el request //se guardo bajo el nombre
-							de "listado" List<Orador> listado = (List<Orador>)request.getAttribute("listado");
-								%>
+						<%List<Orador> listado = (List<Orador>)request.getAttribute("listado");%>
 								<tbody>
-									<!-- ESTO SE REPITE TANTA CANDTIDAD DE VECES COMO ARTICULOS TENGA -->
 									<% for( Orador unOrador : listado) { %>
 										<tr>
 											<th scope="row">
