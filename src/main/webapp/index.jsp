@@ -47,7 +47,7 @@
                                     tickets</a>
                             </li>
                             <li class="nav-item">
-                                <a class="p-3 btn btn-dark fs-3" href="${process.cwd()}/../integrador/pages/login.jsp">Iniciar sesión</a>
+                                <a class="p-3 btn btn-dark fs-3" href="<%=request.getContextPath()%>/../integrador/pages/login.jsp">Iniciar sesión</a>
                             </li>
                         </ul>
                     </div>

@@ -3,11 +3,14 @@
 
 <!doctype html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
 
     <title>Dashboard</title>
@@ -17,13 +20,16 @@
     <jsp:include page="./header.jsp" />
 
     <main class="p-5">
-    	<section class="mt-5 d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-		    <h3 class="text-center me-3">Encontra tus oradores favoritos por sus temas: </h3>
-		    <form class="d-flex" action="<%=request.getContextPath()%>/BuscarOradorTemaController?origin=dashboard" method="post">
-		        <input class="form-control me-2 fs-4" name="temabuscar" id="temabuscar" type="search" placeholder="Escribí un tema" aria-label="Buscar">
-		        <input class="btn btn-outline-success fs-4" type="submit" value="Buscar">
-		    </form>
-		</section>
+        <section class="mt-5 d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
+            <h3 class="text-center me-3">Encontra tus oradores favoritos por sus temas: </h3>
+            <form class="d-flex"
+                action="<%=request.getContextPath()%>/BuscarOradorTemaController?origin=dashboard"
+                method="post">
+                <input class="form-control me-2 fs-4" name="temabuscar" id="temabuscar" type="search"
+                    placeholder="EscribÃ­ un tema" aria-label="Buscar">
+                <input class="btn btn-outline-success fs-4" type="submit" value="Buscar">
+            </form>
+        </section>
         <section class="container mt-5 mb-4" id="restoOradores">
             <h2 class="text-center mb-4">Conoce todos los oradores</h2>
             <div class="row justify-content-center">
@@ -33,36 +39,41 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col" class="col-2">Nombre</th>
-					            <th scope="col" class="col-2">Apellido</th>
-					            <th scope="col" class="col-4">Tema</th>
+                                <th scope="col" class="col-2">Apellido</th>
+                                <th scope="col" class="col-4">Tema</th>
                             </tr>
                         </thead>
-                        <%
-                            List<Orador> listado = (List<Orador>) request.getAttribute("listado");
-                            for (Orador unOrador : listado) {
-                        %>
-                        <tbody>
-                            <tr>
-                                <th scope="row"><%=unOrador.getId()%></th>
-                                <td class="text-break"><%=unOrador.getNombre() %></td>
-			                    <td class="text-break"><%=unOrador.getApellido() %></td>
-			                    <td class="text-break"><%=unOrador.getTema() %></td>
-                                <td class="text-end">
-                                    <a class="btn btn-info fs-4 my-1" role="button"
-                                        href="<%=request.getContextPath()%>/UpdateOradorController?id=<%=unOrador.getId()%>">
-                                        Editar
-                                    </a> |
-                                    <button type="button" class="btn btn-danger fs-4 my-1" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"
-                                        onclick="setOradorId(<%=unOrador.getId()%>)">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <%
-                            }
-                        %>
+                        <% List<Orador> listado = (List<Orador>) request.getAttribute("listado");
+                                for (Orador unOrador : listado) {
+                                %>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <%=unOrador.getId()%>
+                                        </th>
+                                        <td class="text-break">
+                                            <%=unOrador.getNombre() %>
+                                        </td>
+                                        <td class="text-break">
+                                            <%=unOrador.getApellido() %>
+                                        </td>
+                                        <td class="text-break">
+                                            <%=unOrador.getTema() %>
+                                        </td>
+                                        <td class="text-end">
+                                            <a class="btn btn-info fs-4 my-1" role="button"
+                                                href="<%=request.getContextPath()%>/UpdateOradorController?id=<%=unOrador.getId()%>">
+                                                Editar
+                                            </a> |
+                                            <button type="button" class="btn btn-danger fs-4 my-1"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                onclick="setOradorId(<%=unOrador.getId()%>)">
+                                                Eliminar
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <% } %>
                     </table>
                 </div>
             </div>
@@ -82,7 +93,7 @@
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ¿Confirma que desea eliminar?
+                        Â¿Confirma que desea eliminar?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
@@ -105,4 +116,5 @@
         }
     </script>
 </body>
+
 </html>
