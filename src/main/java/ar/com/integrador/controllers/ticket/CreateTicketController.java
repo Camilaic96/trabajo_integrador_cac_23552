@@ -18,23 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 public class CreateTicketController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Entra en el controller crear");
-		
 		String nombre = req.getParameter("nombre");
-		System.out.println("nombre recibe controller create: " + nombre);
-	    
 		String apellido = req.getParameter("apellido");
-	    System.out.println("apellido recibe controller create: " + apellido);
-	    
 	    String mail = req.getParameter("mail");
-	    System.out.println("mail recibe controller create: " + mail);
-	    
 	    String categoria = req.getParameter("categoria");
-	    System.out.println("categoria recibe controller create: " + categoria);
-	    
 	    Long cantidad = Long.parseLong(req.getParameter("cantidad"));
-	    System.out.println("cantidad recibe controller create: " + cantidad);
-	   
 	    Long precio_total = null;
 	   
 	    List<String> errores = new ArrayList<>();
@@ -56,7 +44,7 @@ public class CreateTicketController extends HttpServlet {
 		        break;
 		}
 	
-	    System.out.println("precio_total recibe controller create: " + precio_total);
+	    java.util.Date fecha_compra = new java.util.Date();
 		
 		if (nombre == null || "".equals(nombre)) {
 			errores.add("Nombre vacío");
@@ -76,7 +64,7 @@ public class CreateTicketController extends HttpServlet {
 			return;
 		}
 		iTicketDAO dao = new TicketDAOMysqlImpl();
-		Ticket ticket = new Ticket(cantidad, categoria, mail, precio_total, nombre, apellido);
+		Ticket ticket = new Ticket(cantidad, categoria, mail, precio_total, nombre, apellido,fecha_compra);
 		System.out.println(ticket);
 		try {
 			dao.create(ticket);

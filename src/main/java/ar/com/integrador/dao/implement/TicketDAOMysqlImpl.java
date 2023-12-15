@@ -5,10 +5,12 @@ import ar.com.integrador.domain.Ticket;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TicketDAOMysqlImpl implements iTicketDAO {
 	@Override
@@ -26,9 +28,10 @@ public class TicketDAOMysqlImpl implements iTicketDAO {
 			Long precioTotalBd = resultset.getLong("precio_total");
 			String nombreBd = resultset.getString("nombre");
 			String apellidoBd = resultset.getString("apellido");
+			Date fecha_compraBd = resultset.getDate("fecha_compra");
 			
 			cerrar(connection);
-			return new Ticket(idBd,cantidadBd,categoriaBd,mailBd,precioTotalBd,nombreBd,apellidoBd);
+			return new Ticket(idBd,cantidadBd,categoriaBd,mailBd,precioTotalBd,nombreBd,apellidoBd,fecha_compraBd);
 		}
 		cerrar(connection);
 		return null;
@@ -51,8 +54,9 @@ public class TicketDAOMysqlImpl implements iTicketDAO {
 			Long precioTotalBd = resultset.getLong("precio_total");
 			String nombreBd = resultset.getString("nombre");
 			String apellidoBd = resultset.getString("apellido");
+			Date fecha_compraBd = resultset.getDate("fecha_compra");
 
-			Ticket t = new Ticket(idBd,cantidadBd,categoriaBd,mailBd,precioTotalBd,nombreBd,apellidoBd);
+			Ticket t = new Ticket(idBd,cantidadBd,categoriaBd,mailBd,precioTotalBd,nombreBd,apellidoBd,fecha_compraBd);
 			tickets.add(t);
 		}
 		cerrar(connection);	
@@ -60,38 +64,9 @@ public class TicketDAOMysqlImpl implements iTicketDAO {
 	}
 
 	@Override
-	public void delete(Long id) throws Exception {
-		Connection connection = AdministradorDeConexiones.getConnection();
-
-	    String sql = "DELETE FROM tickets WHERE id_ticket=" + id;
-
-	 	Statement statement  = connection.createStatement();
-		statement.executeUpdate(sql);
-		cerrar(connection); 
-	}
-
-	@Override
-	public void update(Ticket ticket) throws Exception {
-		Connection connection = AdministradorDeConexiones.getConnection();
-		 String sql = "update tickets set cantidad = ?, categoria = ?, mail = ?, precio_total = ?, nombre = ?, apellido = ? where id_ticket= ?"  ;
-		 PreparedStatement statement  = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-	     statement.setLong(1,ticket.getCantidad());
-		 statement.setString(2,ticket.getCategoria());
-		 statement.setString(3,ticket.getMail());
-		 statement.setLong(4,ticket.getPrecioTotal());
-		 statement.setString(5,ticket.getNombre());
-		 statement.setString(6,ticket.getApellido());
-		 statement.setLong(7,ticket.getId());
-
-		 statement.execute();
-		
-		 cerrar(connection);
-	}
-
-	@Override
 	public void create(Ticket newTicket) throws Exception {
-		Connection connection = AdministradorDeConexiones.getConnection();
-		 String sql = "insert into tickets (cantidad, categoria, mail, precio_total, nombre, apellido) values (?,?,?,?,?,?)" ;
+		 Connection connection = AdministradorDeConexiones.getConnection();
+		 String sql = "INSERT INTO tickets (cantidad, categoria, mail, precio_total, nombre, apellido, fecha_compra) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		 PreparedStatement statement  = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 		 statement.setLong(1,newTicket.getCantidad());
 		 statement.setString(2,newTicket.getCategoria());
@@ -99,6 +74,9 @@ public class TicketDAOMysqlImpl implements iTicketDAO {
 		 statement.setLong(4,newTicket.getPrecioTotal());
 		 statement.setString(5,newTicket.getNombre());
 		 statement.setString(6,newTicket.getApellido());
+		 
+		 java.sql.Timestamp fechaActual = new java.sql.Timestamp(new java.util.Date().getTime());
+		 statement.setTimestamp(7, fechaActual);
 
 		 statement.execute();
 		 
@@ -138,7 +116,6 @@ public class TicketDAOMysqlImpl implements iTicketDAO {
 	private void cerrar(Connection con) throws Exception{
 		con.close();
 	}
-	
 	private Ticket crearTicket(ResultSet resultset) throws Exception {
 		Long idBd = resultset.getLong("id_ticket");
 		Long cantidadBd = resultset.getLong("cantidad");
@@ -147,7 +124,9 @@ public class TicketDAOMysqlImpl implements iTicketDAO {
 		Long precioTotalBd = resultset.getLong("precio_total");
 		String nombreBd = resultset.getString("categoria");
 		String apellidoBd = resultset.getString("categoria");
+		Timestamp fechaCompraBd = resultset.getTimestamp("fecha_compra");
+	    Date fecha_compraBd = new Date(fechaCompraBd.getTime());
 		
-		return new Ticket(idBd,cantidadBd,categoriaBd,mailBd,precioTotalBd,nombreBd,apellidoBd);
+		return new Ticket(idBd,cantidadBd,categoriaBd,mailBd,precioTotalBd,nombreBd,apellidoBd,fecha_compraBd);
 	}
 }

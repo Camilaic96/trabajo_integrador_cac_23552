@@ -21,15 +21,16 @@
 	<main>
 		<section class="container mt-5 mb-4" id="tickets">
 			<div class="row justify-content-center">
-				<div class="col-lg-8">
+				<div class="col-lg-10">
 					<h2 class="text-center mb-4">Lista tickets vendidos</h2>
 					<table class="table table-auto">
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col" class="col-3">Cantidad</th>
-								<th scope="col" class="col-3">Categoría</th>
-								<th scope="col" class="col-3">Precio total</th>
+								<th scope="col" class="col-1 ps-5">Cantidad</th>
+								<th scope="col" class="col-2">Categoría</th>
+								<th scope="col" class="col-2">Precio total</th>
+								<th scope="col" class="col-2">Fecha</th>
 								<th scope="col" class="col-3">Comprador</th>
 							</tr>
 						</thead>
@@ -40,14 +41,17 @@
 											<th scope="row">
 												<%=unTicket.getId()%>
 											</th>
-											<td class="text-break">
+											<td class="ps-5">
 												<%=unTicket.getCantidad() %>
 											</td>
-											<td class="text-break">
+											<td>
 												<%=unTicket.getCategoria() %>
 											</td>
-											<td class="text-break">
+											<td>
 												$ <%=unTicket.getPrecioTotal() %>
+											</td>
+											<td>
+												<%=unTicket.getFechaCompra() %>
 											</td>
 											<td class="text-break">
 												<%=unTicket.getMail() %>
@@ -62,7 +66,7 @@
 		<section class="d-flex justify-content-center mb-3">
 			<button class="btn btn-success fs-3" onclick="btnVolver()">Volver</button>
 		</section>
-	</main>
+		
 	<jsp:include page="footer.jsp" />
 
 	<script src="./js/botones.js"></script>

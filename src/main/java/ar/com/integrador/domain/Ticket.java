@@ -1,5 +1,7 @@
 package ar.com.integrador.domain;
 
+import java.util.Date;
+
 public class Ticket {
 	private Long id_ticket;
 	private Long cantidad;
@@ -8,8 +10,9 @@ public class Ticket {
 	private Long precio_total;
 	private String nombre;
 	private String apellido;
+	private Date fecha_compra;
 	
-	public Ticket(Long cantidad, String categoria,String mail,Long precio_total,String nombre,String apellido) {
+	public Ticket(Long cantidad, String categoria,String mail,Long precio_total,String nombre,String apellido,Date fecha_compra) {
 		this.cantidad = cantidad;
 		this.categoria = categoria;
 		this.mail = mail;
@@ -18,7 +21,7 @@ public class Ticket {
 		this.apellido = apellido;
 	}
 
-	public Ticket(Long id_ticket, Long cantidad, String categoria,String mail,Long precio_total,String nombre,String apellido) {
+	public Ticket(Long id_ticket, Long cantidad, String categoria,String mail,Long precio_total,String nombre,String apellido,Date fecha_compra) {
 		this.id_ticket = id_ticket;
 		this.cantidad = cantidad;
 		this.categoria = categoria;
@@ -26,6 +29,7 @@ public class Ticket {
 		this.precio_total = precio_total;
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.fecha_compra = fecha_compra;
 	}
 
 	public Long getId() {
@@ -81,4 +85,10 @@ public class Ticket {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	public Date getFechaCompra() {
+        return this.fecha_compra;
+    }
+    public void setFechaCompra(Date fecha_compra) {
+        this.fecha_compra = fecha_compra;
+    }
 }

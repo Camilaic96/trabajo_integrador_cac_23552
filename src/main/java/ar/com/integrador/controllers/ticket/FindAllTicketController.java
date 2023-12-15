@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 public class FindAllTicketController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Entra en el controller mostrar");
 		iTicketDAO dao = new TicketDAOMysqlImpl();
 		List<Ticket> tickets = new ArrayList<>();
 		try {
