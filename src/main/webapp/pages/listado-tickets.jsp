@@ -29,6 +29,7 @@
 								<th scope="col">#</th>
 								<th scope="col" class="col-3">Cantidad</th>
 								<th scope="col" class="col-3">Categoría</th>
+								<th scope="col" class="col-3">Precio total</th>
 								<th scope="col" class="col-3">Comprador</th>
 							</tr>
 						</thead>
@@ -44,6 +45,9 @@
 											</td>
 											<td class="text-break">
 												<%=unTicket.getCategoria() %>
+											</td>
+											<td class="text-break">
+												$ <%=unTicket.getPrecioTotal() %>
 											</td>
 											<td class="text-break">
 												<%=unTicket.getMail() %>

@@ -35,10 +35,29 @@ public class CreateTicketController extends HttpServlet {
 	    Long cantidad = Long.parseLong(req.getParameter("cantidad"));
 	    System.out.println("cantidad recibe controller create: " + cantidad);
 	   
-	    Double precio_total = Double.parseDouble(req.getParameter("precio_total"));
-	    System.out.println("precio_total recibe controller create: " + precio_total);
+	    Long precio_total = null;
+	   
+	    List<String> errores = new ArrayList<>();
+	    switch (categoria.charAt(0)) {
+		    case 'S':
+		        precio_total = (long) (200 * cantidad);
+		        break;
+		    case 'E':
+		        precio_total = (long) (200 * cantidad * (1 - 0.8));
+		        break;
+		    case 'T':
+		    	precio_total = (long) (200 * cantidad * (1 - 0.5));
+		        break;
+		    case 'J':
+		    	precio_total = (long) (200 * cantidad * (1 - 0.15));
+		        break;
+		    default:
+		    	errores.add("Precio incorrecto");
+		        break;
+		}
 	
-		List<String> errores = new ArrayList<>();
+	    System.out.println("precio_total recibe controller create: " + precio_total);
+		
 		if (nombre == null || "".equals(nombre)) {
 			errores.add("Nombre vacío");
 		}

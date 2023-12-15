@@ -5,11 +5,11 @@ public class Ticket {
 	private Long cantidad;
 	private String categoria;
 	private String mail;
-	private Double precio_total;
+	private Long precio_total;
 	private String nombre;
 	private String apellido;
 	
-	public Ticket(Long cantidad, String categoria,String mail,Double precio_total,String nombre,String apellido) {
+	public Ticket(Long cantidad, String categoria,String mail,Long precio_total,String nombre,String apellido) {
 		this.cantidad = cantidad;
 		this.categoria = categoria;
 		this.mail = mail;
@@ -18,7 +18,7 @@ public class Ticket {
 		this.apellido = apellido;
 	}
 
-	public Ticket(Long id_ticket, Long cantidad, String categoria,String mail,Double precio_total,String nombre,String apellido) {
+	public Ticket(Long id_ticket, Long cantidad, String categoria,String mail,Long precio_total,String nombre,String apellido) {
 		this.id_ticket = id_ticket;
 		this.cantidad = cantidad;
 		this.categoria = categoria;
@@ -60,11 +60,11 @@ public class Ticket {
 		this.mail = mail;
 	}
 	
-	public Double getPrecioTotal() {
+	public Long getPrecioTotal() {
 		return this.precio_total;
 	}
 
-	public void setPrecioTotal(Double precio_total) {
+	public void setPrecioTotal(Long precio_total) {
 		this.precio_total = precio_total;
 	}	
 	public String getNombre() {

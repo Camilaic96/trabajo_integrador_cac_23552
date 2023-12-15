@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="w-100">
-                <input type="email" name="email" placeholder="Correo" id="mail" name="mail" class="form-control w-100" required/>
+                <input type="email" placeholder="Correo" id="mail" name="mail" class="form-control w-100" required/>
                 <div class="invalid-feedback" id="error-email">
                     <p>Ingrese un correo válido</p>
                 </div>
