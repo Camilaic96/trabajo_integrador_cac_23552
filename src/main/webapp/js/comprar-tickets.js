@@ -11,16 +11,25 @@ let divErrorEmail = document.getElementById("error-email");
 let divErrorQuantity = document.getElementById("error-quantity");
 let divErrorCategory = document.getElementById("error-category");
 
-let inputFirstName = document.getElementById("first_name");
-let inputLastName = document.getElementById("last_name");
-let inputEmail = document.getElementById("email");
-let inputQuantity = document.getElementById("quantity");
-let inputCategory = document.getElementById("category");
+let inputFirstName = document.getElementById("nombre");
+let inputLastName = document.getElementById("apellido");
+let inputEmail = document.getElementById("mail");
+let inputQuantity = document.getElementById("cantidad");
+let inputCategory = document.getElementById("categoria");
 
 let btnPurchase = document.getElementById("btnPurchase");
 let btnDelete = document.getElementById("btnDelete");
+let btnCompra = document.getElementById("btnComprar")
+let btnCancelar = document.getElementById("btnCancelar")
 
 let spanTotalPrice = document.getElementById("total");
+
+let nombreValido;
+let apellidoValido;
+let mailValido;
+let categoriaValido;
+let cantidadValido;
+let precioTotalValido;
 
 const showTotalPurchase = (totalPrice) => {
   spanTotalPrice.innerText = `${totalPrice}`;
@@ -28,17 +37,18 @@ const showTotalPurchase = (totalPrice) => {
 
 const calcTotalPrice = (quantity, category) => {
   let discount;
-  switch (category) {
-    case "0":
+  let c = category[0];
+  switch (c) {
+    case "S":
       discount = 0;
       break;
-    case "1":
+    case "E":
       discount = studentDiscount;
       break;
-    case "2":
+    case "T":
       discount = traineeDiscount;
       break;
-    case "3":
+    case "J":
       discount = juniorDiscount;
       break;
   }
@@ -87,24 +97,88 @@ const resetValidation = () => {
   ].forEach((item) => item.classList.remove("is-invalid"));
 };
 
+const showBtnResumen = (show) => {
+  if (show) {
+    btnPurchase.classList.remove("d-none");
+    btnDelete.classList.remove("d-none");
+  } else {
+    btnPurchase.classList.add("d-none");
+    btnDelete.classList.add("d-none");
+  }
+};
+
+
+const showBtnCompra = (show) => {
+  if (show) {
+    btnCancelar.classList.remove("d-none");
+    btnCompra.classList.remove("d-none");
+  } else {
+    btnCancelar.classList.add("d-none");
+    btnCompra.classList.add("d-none");
+  }
+};
+
 btnPurchase.addEventListener("click", (e) => {
   e.preventDefault();
   resetValidation();
 
-  let first_name = inputFirstName.value;
-  let last_name = inputLastName.value;
-  let email = inputEmail.value;
-  let quantity = parseInt(inputQuantity.value);
-  let category = inputCategory.value;
+  let nombre = inputFirstName.value;
+  let apellido = inputLastName.value;
+  let mail = inputEmail.value;
+  let cantidad = parseInt(inputQuantity.value);
+  let categoria = inputCategory.value;
 
-  if (!validData(first_name, last_name, email, quantity, category)) {
+  if (!validData(nombre, apellido, mail, cantidad, categoria)) {
     return;
   }
-  let totalPrice = calcTotalPrice(quantity, category);
-  showTotalPurchase(totalPrice);
+  
+  let precio_total = calcTotalPrice(cantidad, categoria);
+  
+  nombreValido = nombre;
+  apellidoValido = apellido;
+  mailValido = mail;
+  categoriaValido = categoria;
+  cantidadValido = cantidad;
+  precioTotalValido = precio_total;
+  
+  showTotalPurchase(precio_total);
+  
+  showBtnResumen(false);
+  showBtnCompra(true);
 });
 
 btnDelete.addEventListener("click", (e) => {
   showTotalPurchase(0);
   resetValidation();
+  showBtnResumen(false);
+  showBtnCompra(true);
 });
+
+btnCancelar.addEventListener("click", (e) => {
+  showTotalPurchase(0);
+  resetValidation();
+  showBtnResumen(true);
+  showBtnCompra(false)
+});
+
+btnCompra.addEventListener("click", (e) => {
+  resetValidation();
+
+  nombre = nombreValido;
+  apellido = apellidoValido;
+  mail = mailValido;
+  categoria = categoriaValido;
+  cantidad = cantidadValido;
+  precio_total = precioTotalValido;
+	
+  console.log("nombre en comprar-tickets.js, btnCompra: " + nombre);
+  console.log("apellido en comprar-tickets.js, btnCompra: " + apellido);
+  console.log("mail en comprar-tickets.js, btnCompra: " + mail);
+  console.log("cantidad en comprar-tickets.js, btnCompra: " + cantidad);
+  console.log("categoria en comprar-tickets.js, btnCompra: " + categoria);
+  console.log("precio_total en comprar-tickets.js, btnCompra: " + precio_total);
+
+
+  showBtnResumen(true);
+  showBtnCompra(false);
+})

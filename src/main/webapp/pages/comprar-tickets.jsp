@@ -15,6 +15,9 @@
 <body>
 	<jsp:include page="./header.jsp"/>
     <main class="p-5 mainTickets d-flex flex-column justify-content-center align-items-center col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <section class="container mb-4 text-center" id="all-tickets">
+        	<a class="btn btn-outline-success fs-3" href="<%=request.getContextPath()%>/FindAllTicketController">Ver lista de tickets vendidos</a>
+        </section>
         <section class="d-flex flex-wrap justify-content-center align-items-center gap-5 gap-lg-2 w-100">
             <div class="card cardCategory border-blue">
                 <div class="card-body d-flex flex-column align-items-center justify-content-evenly">
@@ -42,23 +45,23 @@
             </div>
         </section>
         <h1 class="text-center text-uppercase my-3"><div>venta</div>valor de ticket $200</h1>
-        <form action="" id="form-tickets" class="d-flex flex-column gap-4 p-3 p-xl-5 col-12 col-xl-9">
+        <form action="<%=request.getContextPath()%>/CreateTicketController" method="POST" id="form-tickets" class="d-flex flex-column gap-4 p-3 p-xl-5 col-12 col-xl-9">
             <div class="d-flex flex-column flex-lg-row gap-3">
                 <div class="w-100">
-                    <input type="text" placeholder="Nombre" id="first_name" class="form-control w-100" required/>
+                    <input type="text" placeholder="Nombre" id="nombre" name="nombre" class="form-control w-100" required/>
                     <div class="invalid-feedback" id="error-firstName">
                         <p>Ingrese su nombre</p>
                     </div>
                 </div>
                 <div class="w-100">
-                    <input type="text" placeholder="Apellido" id="last_name" class="form-control w-100" required/>
+                    <input type="text" placeholder="Apellido" id="apellido" name="apellido" class="form-control w-100" required/>
                     <div class="invalid-feedback" id="error-lastName">
                         <p>Ingrese su apellido</p>
                     </div>
                 </div>
             </div>
             <div class="w-100">
-                <input type="email" name="email" placeholder="Correo" id="email" class="form-control w-100" required/>
+                <input type="email" name="email" placeholder="Correo" id="mail" name="mail" class="form-control w-100" required/>
                 <div class="invalid-feedback" id="error-email">
                     <p>Ingrese un correo válido</p>
                 </div>
@@ -67,7 +70,7 @@
                 <div class="w-100">
                     <div class="d-flex flex-lg-column gap-3 w-100">
                         <label for="quantity" class="me-3 form-label">Cantidad</label>
-                        <input type="number" name="quantity" id="quantity" placeholder="cantidad" class="form-control w-100" min="1" required>
+                        <input type="number" name="cantidad" id="cantidad" placeholder="cantidad" class="form-control w-100" min="1" required>
                     </div>
                     <div class="invalid-feedback" id="error-quantity">
                         <p>Ingrese la cantidad de tickets</p>
@@ -75,12 +78,12 @@
                 </div>
                 <div class="d-flex flex-lg-column gap-3 w-100">
                     <label for="category" class="me-3 form-label">Categoría</label>
-                    <select class="form-select" aria-label="Categoría" class="w-100" id="category">
+                    <select class="form-select" aria-label="Categoría" name="categoria" class="w-100" id="categoria">
                         <option value="" selected>--Seleccione una opción--</option>
-                        <option value="0">Sin categoría</option>
-                        <option value="1">Estudiante</option>
-                        <option value="2">Trainee</option>
-                        <option value="3">Junior</option>
+                        <option value="Sin categoria">Sin categoría</option>
+                        <option value="Estudiante">Estudiante</option>
+                        <option value="Trainee">Trainee</option>
+                        <option value="Junior">Junior</option>
                     </select>
                     <div class="invalid-feedback" id="error-category">
                         <p>Elija una categoría</p>
@@ -91,6 +94,10 @@
             <div class="d-flex gap-3">
                 <button type="reset" id="btnDelete" class="btn btn-success w-100 p-3 fs-3">Borrar</button>
                 <button type="button" id="btnPurchase" class="btn btn-success w-100 p-3 fs-3">Resumen</button>
+            </div>
+            <div class="d-flex gap-3">
+            	<button type="reset" id="btnCancelar" class="btn btn-success w-100 p-3 fs-3 d-none">Cancelar</button>
+            	<button type="submit" id="btnComprar" class="w-100 text-dark buttons mt-3 d-none">Comprar</button>
             </div>
         </form>
     </main>

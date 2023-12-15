@@ -130,7 +130,6 @@
             <section class="container mb-4 text-center" id="restoOradores">
                 <a class="btn btn-outline-success fs-3" href="<%=request.getContextPath()%>/FindAllOradorController">Conoce
                     al resto de los ORADORES</a>
-
             </section>
             <section id="placeAndDate" class="d-flex flex-column flex-lg-row w-100 gap-1">
                 <div class="col-12 col-lg-6 placeAndDate__img"></div>

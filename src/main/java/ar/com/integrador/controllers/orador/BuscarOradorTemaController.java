@@ -1,4 +1,4 @@
-package ar.com.integrador.controllers;
+package ar.com.integrador.controllers.orador;
 
 import ar.com.integrador.dao.iOradorDAO;
 import ar.com.integrador.dao.implement.OradorDAOMysqlImpl;

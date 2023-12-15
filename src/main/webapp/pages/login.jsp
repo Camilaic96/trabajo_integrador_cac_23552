@@ -33,7 +33,7 @@
 									placeholder="Usuario" aria-label="Nombre" required>
 							</div>
 							<div class="col-8">
-								<input type="password" class="my-3 w-100 p-3 form-control"" name=" password"
+								<input type="password" class="my-3 w-100 p-3 form-control" name="password"
 									placeholder="Contraseña" aria-label="Password" required>
 							</div>
 						</div>
