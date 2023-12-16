@@ -1,5 +1,6 @@
 <%@page import="ar.com.integrador.domain.Orador" %>
 <%@page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <% Orador orador=(Orador)request.getAttribute("orador"); %>
 
 <!doctype html>

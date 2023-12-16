@@ -1,5 +1,6 @@
 <%@page import="ar.com.integrador.domain.Orador" %>
 <%@page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!doctype html>
 <html lang="es">
@@ -22,7 +23,7 @@
         <section class="mt-5 d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
             <h3 class="text-center me-3">Encontra tus oradores favoritos por sus temas: </h3>
             <form id="searchForm" class="d-flex" action="<%=request.getContextPath()%>/BuscarOradorTemaController?origin=dashboard" method="post">
-                <input class="form-control me-2 fs-4" name="temabuscar" id="temabuscar" type="search" placeholder="Escribí un tema" aria-label="Buscar">
+                <input class="form-control me-2 fs-4" name="temabuscar" id="temabuscar" type="search" placeholder="EscribÃ­ un tema" aria-label="Buscar">
                 <input class="btn btn-outline-success fs-4" type="submit" value="Buscar">
             </form>
         </section>

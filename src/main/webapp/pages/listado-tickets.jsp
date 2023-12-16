@@ -1,5 +1,6 @@
 <%@page import="ar.com.integrador.domain.Ticket" %>
 <%@page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!doctype html>
 <html lang="es">
@@ -28,7 +29,7 @@
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col" class="col-1 ps-5">Cantidad</th>
-								<th scope="col" class="col-2">Categoría</th>
+								<th scope="col" class="col-2">CategorÃ­a</th>
 								<th scope="col" class="col-2">Precio total</th>
 								<th scope="col" class="col-2">Fecha</th>
 								<th scope="col" class="col-3">Comprador</th>

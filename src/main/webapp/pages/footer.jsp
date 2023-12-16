@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <footer class="footer p-3 d-flex align-items-center">
     <div class="container h-100">
         <ul class="d-flex flex-wrap justify-content-evenly align-items-center h-100">
