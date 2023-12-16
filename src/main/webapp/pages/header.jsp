@@ -29,7 +29,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link p-3 fs-3"
-                            href="<%=request.getContextPath()%>/../integrador/index.jsp#form-orador">Convi�rtete en
+                            href="<%=request.getContextPath()%>/../integrador/index.jsp#form-orador">Conviértete en
                             orador</a>
                     </li>
                     <li class="nav-item">
@@ -39,7 +39,7 @@
                     </li>
                     <li class="nav-item">
                         <a class=" fs-3 p-3 btn btn-dark"
-                            href="<%=request.getContextPath()%>/../integrador/pages/login.jsp">Iniciar sesi�n</a>
+                            href="<%=request.getContextPath()%>/../integrador/pages/login.jsp">Iniciar sesión</a>
                     </li>
                 </ul>
             </div>
