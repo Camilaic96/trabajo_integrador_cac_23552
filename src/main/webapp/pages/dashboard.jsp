@@ -18,17 +18,16 @@
 
 <body>
     <jsp:include page="./header.jsp" />
-
     <main class="p-5">
         <section class="mt-5 d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
             <h3 class="text-center me-3">Encontra tus oradores favoritos por sus temas: </h3>
-            <form class="d-flex"
-                action="<%=request.getContextPath()%>/BuscarOradorTemaController?origin=dashboard"
-                method="post">
-                <input class="form-control me-2 fs-4" name="temabuscar" id="temabuscar" type="search"
-                    placeholder="EscribÃ­ un tema" aria-label="Buscar">
+            <form id="searchForm" class="d-flex" action="<%=request.getContextPath()%>/BuscarOradorTemaController?origin=dashboard" method="post">
+                <input class="form-control me-2 fs-4" name="temabuscar" id="temabuscar" type="search" placeholder="Escribí un tema" aria-label="Buscar">
                 <input class="btn btn-outline-success fs-4" type="submit" value="Buscar">
             </form>
+        </section>
+		<section class="container mb-4 text-center" id="restoOradores">
+            <button type="reset" id="btnDeleteSearch" class="btn btn-danger fs-4" onclick="borrarFiltro()">Borrar filtro</button>
         </section>
         <section class="container mt-5 mb-4" id="restoOradores">
             <h2 class="text-center mb-4">Conoce todos los oradores</h2>
@@ -110,6 +109,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="./js/botones.js"></script>
     <script>
         function setOradorId(id) {
             document.getElementById('idOrador').value = id;

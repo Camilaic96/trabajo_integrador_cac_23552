@@ -61,14 +61,14 @@
 								</tbody>
 					</table>
 				</div>
-
+			</div>
 		</section>
 		<section class="d-flex justify-content-center mb-3">
 			<button class="btn btn-success fs-3" onclick="btnVolver()">Volver</button>
-		</section>
-		
+		</section>		
+	</main>
+	
 	<jsp:include page="footer.jsp" />
-
 	<script src="./js/botones.js"></script>
 </body>
 

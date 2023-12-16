@@ -97,7 +97,7 @@
             </div>
             <div class="d-flex gap-3">
             	<button type="reset" id="btnCancelar" class="btn btn-success w-100 p-3 fs-3 d-none">Cancelar</button>
-            	<button type="submit" id="btnComprar" class="w-100 text-dark buttons mt-3 d-none">Comprar</button>
+            	<button type="submit" id="btnComprar" class="btn btn-success w-100 p-3 fs-3 d-none">Comprar</button>
             </div>
         </form>
     </main>

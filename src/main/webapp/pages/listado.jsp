@@ -21,13 +21,16 @@
 	<main>
 		<section class="mt-5 d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
 			<h3 class="text-center me-3">Encontra tus oradores favoritos por sus temas: </h3>
-			<form class="d-flex"
+			<form class="d-flex" id="searchForm"
 				action="<%=request.getContextPath()%>/BuscarOradorTemaController?origin=listado" method="post">
 				<input class="form-control me-2 fs-4" name="temabuscar" id="temabuscar" type="search"
 					placeholder="Escribí un tema" aria-label="Buscar">
 				<input class="btn btn-outline-success fs-4" type="submit" value="Buscar">
 			</form>
 		</section>
+		<section class="container mb-4 text-center" id="restoOradores">
+            <button type="reset" id="btnDeleteSearch" class="btn btn-danger fs-4" onclick="borrarFiltro()">Borrar filtro</button>
+        </section>
 		<section class="container mt-5 mb-4" id="restoOradores">
 			<div class="row justify-content-center">
 				<div class="col-lg-8">
@@ -63,9 +66,6 @@
 					</table>
 				</div>
 
-		</section>
-		<section class="d-flex justify-content-center mb-3">
-			<button class="btn btn-success fs-3" onclick="btnVolver()">Volver</button>
 		</section>
 	</main>
 	<jsp:include page="footer.jsp" />

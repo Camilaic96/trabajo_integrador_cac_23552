@@ -155,8 +155,8 @@ btnDelete.addEventListener("click", (e) => {
 });
 
 btnCancelar.addEventListener("click", (e) => {
+  e.preventDefault();
   showTotalPurchase(0);
-  resetValidation();
   showBtnResumen(true);
   showBtnCompra(false)
 });
@@ -181,4 +181,7 @@ btnCompra.addEventListener("click", (e) => {
 
   showBtnResumen(true);
   showBtnCompra(false);
+  
+  showTotalPurchase(0);
+  resetValidation();
 })
