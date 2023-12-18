@@ -1,4 +1,4 @@
-package ar.com.integrador.controllers.orador;
+package ar.com.integrador.controllers.user;
 
 import java.io.IOException;
 

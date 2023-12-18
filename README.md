@@ -74,10 +74,13 @@ Grupo 1 - Comisión 23552 - FullStack Java Codo A Codo
 
 Para contribuir a este proyecto, sigue los pasos:
 
-1- Haz un fork del proyecto.
-2- Crea una rama con tu funcionalidad: git checkout -b nueva-funcionalidad
-3- Haz commit de tus cambios: git commit -am 'Añade nueva funcionalidad'
-4- Sube tu rama: git push origin nueva-funcionalidad
+    1. Haz un fork del proyecto.
+
+    2. Crea una rama con tu funcionalidad: git checkout -b nueva-funcionalidad
+
+    3. Haz commit de tus cambios: git commit -am 'Añade nueva funcionalidad'
+
+    4. Sube tu rama: git push origin nueva-funcionalidad
 
 ## Contacto
 

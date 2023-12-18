@@ -4,8 +4,7 @@
         <div class="container-fluid justify-content-between">
             <a href="<%=request.getContextPath()%>/../integrador/index.jsp"
                 class="col-8 col-md-6 col-lg-4 col-xl-3 d-flex align-items-center">
-                <img src="<%=request.getContextPath()%>/../integrador/assets/img/logo_cac.png"
-                    alt="Logo de Codo a Codo 4.0" class="imgLogo" loading="lazy" />
+                <img src="<%=request.getContextPath()%>/../integrador/assets/img/logo_cac.png" alt="Logo de Codo a Codo 4.0" class="imgLogo" loading="lazy" />
                 <h2 class="colorWhite fs-1">Conf Bs As</h2>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

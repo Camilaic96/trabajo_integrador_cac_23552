@@ -8,7 +8,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/../integrador/favicon.ico" type="image/x-icon">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 		crossorigin="anonymous">
@@ -29,7 +29,7 @@
 				<input class="btn btn-outline-success fs-4" type="submit" value="Buscar">
 			</form>
 		</section>
-		<section class="container mb-4 text-center" id="restoOradores">
+		<section class="container my-4 text-center">
             <button type="reset" id="btnDeleteSearch" class="btn btn-danger fs-4" onclick="borrarFiltro()">Borrar filtro</button>
         </section>
 		<section class="container mt-5 mb-4" id="restoOradores">
@@ -52,10 +52,10 @@
 											<th scope="row">
 												<%=unOrador.getId()%>
 											</th>
-											<td class="text-break">
+											<td>
 												<%=unOrador.getNombre() %>
 											</td>
-											<td class="text-break">
+											<td>
 												<%=unOrador.getApellido() %>
 											</td>
 											<td class="text-break">
@@ -66,7 +66,7 @@
 								</tbody>
 					</table>
 				</div>
-
+			</div>
 		</section>
 	</main>
 	<jsp:include page="footer.jsp" />
